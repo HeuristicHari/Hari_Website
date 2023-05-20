@@ -5,13 +5,16 @@ import Navbar from '../Components/navbar';
 import 'tailwindcss/tailwind.css'
 export default function Home() {
   return (
-    
+  <div className="bg-zinc-800"  >
     <div className={styles.container}>
+      
       <Navbar />
+
+      <p className='space-y-2'>&ensp;</p>
     
 
-		<div className='space-y-2'>
-			<h1 className="space-y-2 text-center text-primary-900 mb-4 font-semibold text-3xl md:text-5xl tracking-tight">About</h1>
+		<div className='text-white text-base md:text-xl space-y-2'>
+			<h1 className=" space-y-2 text-center text-primary-900 mb-4 font-semibold text-3xl md:text-5xl tracking-tight">About</h1>
 			
 
 			<p>Hey! I'm Hari Desikan, a sophomore at Carnegie Mellon University majoring in CS. </p>
@@ -19,37 +22,16 @@ export default function Home() {
       <p>Check out my projects if you're interested in learning more!</p>
 		</div>
 	
-      <Head>
+      <Head className="bg-zinc-800">
         <title>Page</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className={styles.title}>
-        hi
-        </h1> 
-
+      <main className="bg-zinc-800">
         
+      </main >
 
-         
-          
-         
-
+      <footer className='bg-slate-700'>
         
-
-         
-        
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
       </footer>
 
       <style jsx>{`
@@ -64,7 +46,7 @@ export default function Home() {
         footer {
           width: 100%;
           height: 100px;
-          border-top: 1px solid #eaeaea;
+          border-top: 1px solid #27272a;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -102,6 +84,7 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
+    </div>
     </div>
   )
 }

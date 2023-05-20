@@ -15,12 +15,12 @@ export default function Home() {
 			
 
 			<p>Hey! I'm Hari Desikan, a sophomore at Carnegie Mellon University majoring in CS. </p>
-			<p>I'm involved with math contests and have taken an interest in nondeterministic zero-sum games like Liar's Dice. </p>
+			<p>I'm involved with math competitions and have taken an interest in nondeterministic zero-sum games like Liar's Dice. </p>
       <p>Check out my projects if you're interested in learning more!</p>
 		</div>
 	
       <Head>
-        <title>Ozk</title>
+        <title>Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

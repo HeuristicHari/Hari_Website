@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Navbar from '../Components/navbar';
 import 'tailwindcss/tailwind.css'
 
-export default function FirstPost() {
+export default function Problems_page() {
   const image_class="flex justify-center md:my-2 transform hover:scale-105 transition duration-300"
   return (
   <div className="bg-blue-300"  >

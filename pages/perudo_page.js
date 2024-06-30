@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import Navbar from '../Components/navbar';
 import 'tailwindcss/tailwind.css'
-export default function FirstPost() {
+export default function Perudo_page() {
   return (
   <div className="bg-red-300"  >
     <div className={styles.container}>

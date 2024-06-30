@@ -6,7 +6,7 @@ import 'tailwindcss/tailwind.css'
 import Tile from '../components/Tile';
 export default function Home() {
   return (
-  <div className="bg-zinc-800">
+  <div className="bg-zinc-800 overflow-x-hidden">
     <div className={styles.container}>
       
       <Navbar />

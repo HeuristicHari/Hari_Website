@@ -7,7 +7,7 @@ import 'tailwindcss/tailwind.css'
 export default function Problems_page() {
   const image_class="flex justify-center md:my-2 transform hover:scale-105 transition duration-300"
   return (
-  <div className="bg-blue-300"  >
+  <div className="bg-blue-300 overflow-x-hidden"  >
     <div className={styles.container}>
       
       <Navbar />

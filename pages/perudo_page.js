@@ -5,7 +5,7 @@ import Navbar from '../components/navbar';
 import 'tailwindcss/tailwind.css'
 export default function Perudo_page() {
   return (
-  <div className="bg-red-300"  >
+  <div className="bg-red-300 overflow-x-hidden"  >
     <div className={styles.container}>
       
       <Navbar />

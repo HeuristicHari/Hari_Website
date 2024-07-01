@@ -32,7 +32,7 @@ export default function Home() {
           /> */}
           <Tile
             title="Perudo"
-            content={<div><div className='text-md my-1'>High variance duel</div> <img src='/Images/perudo-template.png' className='lg:my-4 text-center'></img></div>} 
+            content={<div><div className='text-md my-1'>High variance duel</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
             link="perudo_page"
             bg={1}
           />
@@ -47,13 +47,13 @@ export default function Home() {
             title="Jane Street Probability Cards"
             link="/JS_Probability_Playing_Cards.pdf"
             bg={3}
-            content={<div><div className='text-md'>Solving...</div> <img src='/Images/QQ.png' className='sm:w-16 sm:my-1 lg:w-44 mx-14 my-4'></img></div>}
+            content={<div><div className='text-md'>Solving...</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
           />
           <Tile
             title="Research"
             link="/Hari_Research_Ultrasound.pdf"
             bg={0}
-            content={<div><div className='text-md my-1'>Pretty graphs, Ultrasound images</div> <img src='/Images/3D-Research.png' className='sm:w-20 sm:my-3 sm:mx-9 lg:w-48 lg:mx-12 lg:my-7'></img></div>}
+            content={<div><div className='text-md my-1'>Pretty graphs, Ultrasound images</div> <img src='/Images/3D-Research.png' className=' my-11 sm:w-20 sm:my-2 sm:mx-9 lg:w-48 lg:mx-12 lg:my-7'></img></div>}
           />
           {/* <Tile
             title="Food"

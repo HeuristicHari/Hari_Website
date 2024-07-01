@@ -32,13 +32,13 @@ export default function Home() {
           /> */}
           <Tile
             title="Perudo"
-            content={<div><div className='my-1'>A high-variance imperfect information game</div> <img src='/Images/perudo-template.png' className=' mx- my-2'></img></div>} 
+            content={<div><div className='text-md my-1'>High variance duel</div> <img src='/Images/perudo-template.png' className='text-center'></img></div>} 
             link="perudo_page"
             bg={1}
           />
           <Tile
             title="Hari's Problems"
-            content={<div><div className='my-1'>Problems for your free time</div><img src='/Images/Region.png' className=' w-40 mx-14 my-9'></img> </div>} 
+            content={<div><div className='text-md my-1'>Problems for your free time</div><img src='/Images/Region.png' className=' text-center sm:w-20 sm:mx-9 lg:w-40 lg:mx-14 lg:my-9'></img> </div>} 
 
             link="/problems_page"
             bg={2}
@@ -47,13 +47,13 @@ export default function Home() {
             title="Jane Street Probability Cards"
             link="/JS_Probability_Playing_Cards.pdf"
             bg={3}
-            content={<div><div className='my-1'>Solving...</div> <img src='/Images/QQ.png' className=' w-40 mx-14 my-4'></img></div>}
+            content={<div><div className='text-md'>Solving...</div> <img src='/Images/QQ.png' className='sm:w-16 sm:my-1 lg:w-44 mx-14 my-4'></img></div>}
           />
           <Tile
             title="Research"
             link="/Hari_Research_Ultrasound.pdf"
             bg={0}
-            content={<div><div className='my-1'>Pretty graphs, Ultrasound images</div> <img src='/Images/3D-Research.png' className='w-48 mx-12 my-7'></img></div>}
+            content={<div><div className='text-md my-1'>Pretty graphs, Ultrasound images</div> <img src='/Images/3D-Research.png' className='sm:w-20 sm:my-3 sm:mx-9 lg:w-48 lg:mx-12 lg:my-7'></img></div>}
           />
           {/* <Tile
             title="Food"

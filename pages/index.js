@@ -64,7 +64,7 @@ export default function Home() {
         </div>
 
       <Head className="bg-zinc-800">
-        <title>heuristichari</title>
+        <title>Hari Desikan</title>
       </Head>
 
       <main className="bg-zinc-800">

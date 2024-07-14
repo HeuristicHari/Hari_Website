@@ -40,7 +40,7 @@ export default function Perudo_page() {
 
 
       <Head className="bg-zinc-800">
-        <title>heuristichari</title>
+        <title>Hari Desikan</title>
       </Head>
 
       <main className="bg-zinc-800">

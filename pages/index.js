@@ -65,6 +65,7 @@ export default function Home() {
 
       <Head className="bg-zinc-800">
         <title>Hari Desikan</title>
+        <link rel="icon" href="./public/Images/icon.ico" />
       </Head>
 
       <main className="bg-zinc-800">

@@ -18,7 +18,7 @@ export default function Home() {
 			<h1 className="text-center text-primary-900 mb-1 font-semibold text-3xl md:text-5xl tracking-tight">Hey!! I'm Hari!</h1>
 			
       <div className='mx-8'>
-        Welcome. I'm a sophomore at Carnegie Mellon University majoring in CS. I'll be a SWE intern at Meta til August 2024. 
+        Welcome. I'm a sophomore at Carnegie Mellon University majoring in CS. I've previously interned at Meta from May-Aug 2024. 
         I'm involved with math competitions and have taken an interest in nondeterministic zero-sum games like Liar's Dice. 
         Check out my interests below if you're interested in learning more!
       </div>

@@ -47,7 +47,7 @@ export default function Home() {
             title="Jane Street Probability Cards"
             link="/JS_Probability_Playing_Cards_10_16.pdf"
             bg={3}
-            content={<div><div className='text-md'>(10/16/24) Solving...</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
+            content={<div><div className='text-md'>(10/16/24) Pesky 9♤ :( </div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
           />
           <Tile
             title="Research"

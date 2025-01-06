@@ -15,7 +15,7 @@ export default function Problems_page() {
     
 
 		
-			<h1 className="text-center text-primary-900 mb-1 font-semibold text-2xl md:text-4xl tracking-tight">My fave published problems over the years (:</h1>
+			<h1 className="text-center text-primary-900 mb-1 font-semibold text-2xl md:text-4xl tracking-tight">Try em out :)</h1>
       <div className='w-3/5'>
       <div className={image_class}> 
       <a href="https://drive.google.com/file/d/1juoxlwJrkbXtGE4VDYKDawdc8ZvcqUPp/view" target="_blank" rel="noopener noreferrer">

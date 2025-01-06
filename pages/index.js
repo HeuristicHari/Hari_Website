@@ -19,7 +19,7 @@ export default function Home() {
 			
       <div className='mx-8'>
         Welcome. I'm a junior at Carnegie Mellon University majoring in CS. I've previously interned at Meta from May-Aug 2024. 
-        I'm involved with math competitions and have taken an interest in nondeterministic zero-sum games like Liar's Dice. 
+        I'm involved with writing for math competitions and have taken an interest in nondeterministic zero-sum games like Liar's Dice. 
         Check out my interests below if you're interested in learning more!
       </div>
 		</div>
@@ -37,7 +37,7 @@ export default function Home() {
             bg={1}
           />
           <Tile
-            title="Hari's Problems"
+            title="Hari's Head-Scratchers"
             content={<div><div className='text-md my-1'>Problems for your free time</div><img src='/Images/Region.png' className=' text-center sm:w-20 sm:mx-9 lg:w-40 lg:mx-14 lg:my-9'></img> </div>} 
 
             link="/problems_page"

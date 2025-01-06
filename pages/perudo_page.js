@@ -16,24 +16,34 @@ export default function Perudo_page() {
 		
 			<h1 className="text-center text-primary-900 mb-1 font-semibold text-2xl md:text-4xl tracking-tight">Perudo</h1>
       <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>I've known of this
-      game since 2019. We used to play with cards instead of dice, which actually ends up
-      robbing some of the beauty of the game. Now, you can play with your friends at
-      {' '} <a href="https://perudoonline.com" rel="noopener noreferrer" className="text-purple-500 hover:text-blue-700 hover:underline" >perudoonline.com</a>{' '} without owning a truly questionable number of dice.
+      game since 2019. We used to play with cards instead of dice, which actually ended up
+      removing too much from the complexity of the game. Now, you can play with your friends at
+      {' '} <a href="https://perudoonline.com" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline" >perudoonline.com</a>{' '} without owning a truly questionable number of dice.
 		</div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      A little about the game -- it's a battle-royale game to outsmart and outsurvive other players, placed in the setting of a dice game. Something like a poker tournament, except
-      the fact that aggressive actions are very high-risk and low-reward early on incentivizes extremely defensive play 
-      near the beginning and aggressive play near the end. Additionally, players who start off losing
-      gain a handicap as the game progresses, which introduces further complicated player dynamics to the game. Here are the {' '} <a href="../perudo_rules.pdf" className="text-purple-500 hover:text-blue-700 hover:underline">rules</a>{' '} if you want to learn more; they're also available
-      on the website.
+      A little about the game -- it's a survival game where you win by being the last player standing. Here are the {' '} <a href="../perudo_rules.pdf" className="text-purple-700 hover:text-blue-700 hover:underline">rules</a>{' '} if you want to learn more; they're also available
+      on the website. See if you can come up with a strategy to beat your friends!
     </div>
-    <h1 className="text-center  mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
+    <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>
+        (01-06-25) 
+        My overall goal is to 
+        beat <a href="https://dudo.ai" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">dudo.ai</a>. The core idea is fine-tuning counter-factual regret techniques using pytorch, 
+        which is similar to experts. Thus far, I've ported some code to a collab notebook for CUDA (GPU) access. I've coded up a lot of utilities. I've trained 2 similar models for a measly 6k iterations, where the only thing 
+        I varied is a hyperparameter that I invented. Their outputs make some sense. One model simplifies strategies a little more aggressively than the other.
+  
+    </div>
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      CFR coming soon... or whenever I feel like continuing where I left off. My goal is to beat {' '} <a href="https://dudo.ai" rel="noopener noreferrer" className="text-purple-500 hover:text-blue-700 hover:underline">dudo.ai</a>{' '} as well
-      as develop AIs for the variants it doesn't play.
-
+        For the future, there are a lot of design choices to be made. Interestingly, there is the choice of learning rate scheduler and an exploration parameter that seems adjacent. There are 
+        competing regret frameworks that I can use. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
+        before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo. (The dudo guy also mentioned LP, but seems to have applied
+        a general-purpose conversion of solving sequential games to LPs.) My next step is a little more humble and a bit off the natural path. I will implement 
+        the nonstandard algorithm at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a>, written by authors desperate to salvage exponential policy regret frameworks and the headache with tuning.
+        (Okay, a little dramatic. It helps with immersion.) This page will become more fancy as I come up with some results.
     </div>
+
+  
     <div className="flex justify-center md:my-16 lg:my-28"> 
     <img src='/Images/BS.png' className='md:h-32 lg:h-40  mx-11'></img>
   </div>

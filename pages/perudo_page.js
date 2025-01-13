@@ -27,20 +27,28 @@ export default function Perudo_page() {
     </div>
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>
-        (01-06-25) 
+        (01-13-25) 
         My overall goal is to 
         beat <a href="https://dudo.ai" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">dudo.ai</a>. The core idea is fine-tuning counter-factual regret techniques using pytorch, 
         which is similar to experts. Thus far, I've ported some code to a collab notebook for CUDA (GPU) access. I've coded up a lot of utilities. I've trained 2 similar models for a measly 6k iterations, where the only thing 
         I varied is a hyperparameter that I invented. Their outputs make some sense. One model simplifies strategies a little more aggressively than the other.
   
     </div>
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+
+       <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+       I've messed with regret-hedge algorithms, including the one at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a> that tried to 
+       avoid the problem of tuning a learning rate parameter. However, when I implemented it, weighting weights in 
+       proportion to re^(r^2) majorly amplifies the percent of the time a policy utilizes a high-regret action. 
+       In combination with our monte-carlo sampling, what ends up happening is that calling "lie" (an action that has high-regret to the random policies that initiate training) 
+       becomes overdone, with the strategy when no calls have been made just resembling an almost-deterministic policy basically calling some held face. 
+       
+
+</div>
+  <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
         For the future, there are a lot of design choices to be made. Interestingly, there is the choice of learning rate scheduler and an exploration parameter that seems adjacent. There are 
         competing regret frameworks that I can use. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
         before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo. (The dudo guy also mentioned LP, but seems to have applied
-        a general-purpose conversion of solving sequential games to LPs.) My next step is a little more humble and a bit off the natural path. I will implement 
-        the nonstandard algorithm at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a>, written by authors desperate to salvage exponential policy regret frameworks and the headache with tuning.
-        (Okay, a little dramatic. It helps with immersion.) This page will become more fancy as I come up with some results.
+        a general-purpose conversion of solving sequential games to LPs.) 
     </div>
 
   

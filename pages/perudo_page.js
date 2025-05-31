@@ -26,6 +26,20 @@ export default function Perudo_page() {
       on the website. See if you can come up with a strategy to beat your friends!
     </div>
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      (05-31-25)
+      Heads up, one die each. You roll a 1 and are first to act. The action is 1 2, 1 5, 2 6, BS.
+      Is this line taken by both players at any frequency in the (ones-are-not-wild) nash equilibrium?
+    </div>
+
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      The Dudo AI solver tried to solve the LP for the 1 dice vs 1 dice game, but in its output, lines like the above line are present
+      with nonzero probability. I'm going to try to use PyGambit to solve the 1 die vs 1 die game, but because of its structure, I think I'll need to implement all 
+      of my optimizations to have a chance of solving it quickly. In general, I'll have to set up the LP myself.
+      
+
+    </div>
+
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>
         (01-13-25) 
         My overall goal is to 
@@ -38,17 +52,13 @@ export default function Perudo_page() {
        <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
        I've messed with regret-hedge algorithms, including the one at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a> that tried to 
        avoid the problem of tuning a learning rate parameter. However, when I implemented it, weighting weights in 
-       proportion to re^(r^2) majorly amplifies the percent of the time a policy utilizes a high-regret action. 
-       In combination with our monte-carlo sampling, what ends up happening is that calling "lie" (an action that has high-regret to the random policies that initiate training) 
-       becomes overdone, with the strategy when no calls have been made just resembling an almost-deterministic policy basically calling some held face. 
-       
+       proportion to re^(r^2) empirically just converges poorly because the strategy "likes leaf nodes too much"
+    </div>
 
-</div>
   <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
         For the future, there are a lot of design choices to be made. Interestingly, there is the choice of learning rate scheduler and an exploration parameter that seems adjacent. There are 
         competing regret frameworks that I can use. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
-        before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo. (The dudo guy also mentioned LP, but seems to have applied
-        a general-purpose conversion of solving sequential games to LPs.) 
+        before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo.
     </div>
 
   

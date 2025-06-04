@@ -34,7 +34,7 @@ export default function Perudo_page() {
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
       Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (This is equivalent 
       to resigning.)
-      I nodelocked my solver to call BS, and the minimax payoff did not change -- which means that 
+      I nodelocked my solver (some of it is on Github) to call BS, and the minimax payoff did not change -- which means that 
       all else equal, the common-sense approach of calling BS is ALSO a nash equilibrium.
     </div>
 
@@ -69,10 +69,9 @@ export default function Perudo_page() {
     </div>
 
   <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-        For the future, there are a lot of design choices to be made. Interestingly, there is the choice of learning rate scheduler and an exploration parameter that seems adjacent. There are 
-        competing regret frameworks that I can use. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
+        For the future, there are a lot of design choices to be made. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
         before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo.
-    </div>
+  </div>
 
   
     <div className="flex justify-center md:my-16 lg:my-28"> 

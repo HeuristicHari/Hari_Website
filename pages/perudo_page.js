@@ -28,15 +28,20 @@ export default function Perudo_page() {
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
       (05-31-25)
-      Heads up, one die each. You roll a 1 and are first to act. The action is 1 2, 1 5, 2 6, BS.
-      Is this line taken by both players at any frequency in the (ones-are-not-wild) nash equilibrium?
+      Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      The Dudo AI solver tried to solve the LP for the 1 dice vs 1 dice game, but in its output, lines like the above line are present
-      with nonzero probability. I'm going to try to use PyGambit to solve the 1 die vs 1 die game, but because of its structure, I think I'll need to implement all 
-      of my optimizations to have a chance of solving it quickly. In general, I'll have to set up the LP myself.
-      
+      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s. I coded up a nash equilibrium solver,
+       had this output, tried to debug it for a day, then saw the same action in another source.
+      I nodelocked the solver to call BS, and the minimax payoff did not change -- which means that 
+      all else equal, calling BS is ALSO a nash equilibrium when your opponent calls 2 3s and you have a 4.
+
+      Why? Well, what happens is that this action is not exploitable by your opponent if you call BS with 
+      every other roll when your opponent enters the 2 3s line. Suppose our opponent calls 2 3s whenever they have 
+      a 3. Then, their payoff is 1/3 in this node. Turns out, just calling 1 3 is better for them, as it gains the same 
+      utility in this node but boosts the utility in other nodes of the game tree.
+            
 
     </div>
 

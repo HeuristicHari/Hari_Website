@@ -32,17 +32,25 @@ export default function Perudo_page() {
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s. I coded up a nash equilibrium solver,
-       had this output, tried to debug it for a day, then saw the same action in another source.
-      I nodelocked the solver to call BS, and the minimax payoff did not change -- which means that 
-      all else equal, calling BS is ALSO a nash equilibrium when your opponent calls 2 3s and you have a 4.
+      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (This is equivalent 
+      to resigning.)
+      I nodelocked my solver to call BS, and the minimax payoff did not change -- which means that 
+      all else equal, the common-sense approach of calling BS is ALSO a nash equilibrium.
+    </div>
 
-      Why? Well, what happens is that this action is not exploitable by your opponent if you call BS with 
-      every other roll when your opponent enters the 2 3s line. Suppose our opponent calls 2 3s whenever they have 
-      a 3. Then, their payoff is 1/3 in this node. Turns out, just calling 1 3 is better for them, as it gains the same 
-      utility in this node but boosts the utility in other nodes of the game tree.
-            
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      Why? To put it concisely, this strategy is only weakly dominated by the strategy that acts 
+      the same at every other node but calls BS here. Suppose we have a strategy
+      S' that weakly dominates S. S may still be a nash equilibria if the best response to S
+      never traverses any of the nodes where S' outperforms S. 
+    </div>
 
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      In this particular case -- if our opponent tries to exploit this resignation decision,
+      they will lose too much EV when we don't have a 4 and just call BS instead. So a maximally 
+      exploitative strategy doesn't exploit our resign, and the equilibria doesn't care about this node.
+      (For those who've used GTOWizard -- this is the same reason why GTOWizard will sometimes give you weird looking
+      strategies along with a warning that you are at a "not-often-traversed-node" of the game tree.)
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>

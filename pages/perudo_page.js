@@ -26,25 +26,30 @@ export default function Perudo_page() {
       on the website. See if you can come up with a strategy to beat your friends!
     </div>
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
+
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      (05-31-25)
+    (05-31-25)
       Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>
-
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
 
-      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (mechanically equal to resigning.)
+      Obviously, you should call BS. But there exists a nash equilibrium where you simply resign.
       I nodelocked my solver (some of it is on Github) to call BS, and the minimax payoff did not change -- which means that 
       calling BS instead of resigning is also a nash equilibrium.
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
       Why? To put it concisely, resigning is only weakly dominated by calling BS. And weakly dominated 
-      strategies may be a part of a nash equilibrium. In this particular case -- if our opponent tries to exploit our resign,
-      they will lose too much EV by calling 2 3s. So our opponent can't exploit our resign, and the equilibria doesn't care about this node.
+      strategies may be a part of a nash equilibrium (NE). In this particular case -- if our opponent tries to exploit our resign,
+      they will lose too much EV by calling 2 3s when we don't have a 4. So our opponent can't exploit our resign, and the equilibria doesn't care about this node.
+
+      The set of NE is not only trivially infinite, but also very difficult to describe. There are many situations where we can make clearly bad moves at cetain nodes of the game tree, 
+      and our opponent can't efficiently exploit them because they don't know what die we have. I will be experimenting 
+      with the LP to avoid generating such NE.
 
       (For those who've used GTOWizard -- this is the same reason why GTOWizard will sometimes give you weird looking
       strategies along with a warning that you are at a "not-often-traversed-node" of the game tree.)
+
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
@@ -56,15 +61,17 @@ export default function Perudo_page() {
       sequential representations of games.
     </div>
 
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      The algorithm is a bit general, and supports a wide class of games. So it fails to exploit nice properties 
-      of perudo. Because of this, trying to solve with PyGambit (which implements Koller's Algorithm) results in something like 
-      12 hours of computation to solve the one vs one game. Solution: reimplement the algorithm, leveraging details like the fact that 
-      certain game-theoretic matrices are sparse in Perudo's context. 
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
+      I have to make some optimization choices, because the algorithm as-is is quite general and fails to exploit nice properties 
+      of Perudo. Because of this, trying to solve with PyGambit (which implements Koller's Algorithm) results in something like 
+      12 hours of computation to solve the one vs one game. So I reimplemented the algorithm, adding simple optimizations 
+      like: when a matrix is guaranteed to be sparse, represent it as such. We've gotten to a 20000x speedup, 
+      and now we can solve the game in 2-3 seconds.
+
 
     </div>
 
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my40 lg:mx-64'>
         (01-13-25) 
         My overall goal is to 
         beat <a href="https://dudo.ai" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">dudo.ai</a>. The core idea is fine-tuning counter-factual regret techniques using pytorch, 
@@ -77,10 +84,6 @@ export default function Perudo_page() {
        I've experimented with regret-hedge algorithms, including the one at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a> that tried to 
        avoid the problem of tuning a learning rate parameter. However, when I implemented it, weighting weights in 
        proportion to re^(r^2) empirically just converges poorly because the strategy "likes leaf nodes too much"
-
-        For the future, I intend to integrate linear programming (LP) 
-        into the model, solving near-terminal states explicitly. I got some experience with LPs them in CMUs 15451, where I found that making simple observations about games 
-        to construct LPs can lead to a lot of speedup. 
   </div>
 
   

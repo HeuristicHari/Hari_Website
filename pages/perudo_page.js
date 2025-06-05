@@ -28,7 +28,7 @@ export default function Perudo_page() {
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-    (05-31-25)
+    (06-05-25)
       Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
@@ -41,16 +41,21 @@ export default function Perudo_page() {
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
       Why? To put it concisely, resigning is only weakly dominated by calling BS. And weakly dominated 
       strategies may be a part of a nash equilibrium (NE). In this particular case -- if our opponent tries to exploit our resign,
-      they will lose too much EV by calling 2 3s when we don't have a 4. So our opponent can't exploit our resign, and the equilibria doesn't care about this node.
+      they will lose too much EV by calling 2 3s when we don't have a 4. So our opponent can't exploit our resign.
 
-      The set of NE is not only trivially infinite, but also very difficult to describe. There are many situations where we can make clearly bad moves at cetain nodes of the game tree, 
-      and our opponent can't efficiently exploit them because they don't know what die we have. I will be experimenting 
-      with the LP to avoid generating such NE.
-
-      (For those who've used GTOWizard -- this is the same reason why GTOWizard will sometimes give you weird looking
-      strategies along with a warning that you are at a "not-often-traversed-node" of the game tree.)
+      The solver is very good at working in bad moves and working around them. The set of NE is not only trivially infinite, but also difficult to describe 
+      in its entirety. There are many situations where we can make clearly bad moves at cetain nodes of the game tree, 
+      and our opponent can't efficiently exploit them because they don't know what die we have. (If you've nodelocked with GTOWizard -- 
+      this is the same reason why GTOWizard will give you weird looking
+      strategies at not-often-traversed-nodes of the game tree.) I've included the first move 
+      distribution for a particular equilibria: bluff iff you rolled a 1 or a 2.
 
     </div>
+
+        <div className="flex justify-center md:my-4 lg:my-8"> 
+    <img src='/Images/nash_11.png' className='md:h-32 lg:h-40  mx-11'></img>
+  </div>
+
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
         (05-30-25)
@@ -62,11 +67,10 @@ export default function Perudo_page() {
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
-      I have to make some optimization choices, because the algorithm as-is is quite general and fails to exploit nice properties 
-      of Perudo. Because of this, trying to solve with PyGambit (which implements Koller's Algorithm) results in something like 
-      12 hours of computation to solve the one vs one game. So I reimplemented the algorithm, adding simple optimizations 
-      like: when a matrix is guaranteed to be sparse, represent it as such. We've gotten to a 20000x speedup, 
-      and now we can solve the game in 2-3 seconds.
+      I have to make some optimization choices, because the Koller algorithm as implemented on PyGambit doesn't 
+      exploit any nice properties and results in something like 12 hours of computation to solve the one vs one game. 
+      So I reimplemented the algorithm, adding simple optimizations like: when a matrix is guaranteed to be sparse, represent it as such. 
+      We've gotten to a 20000x speedup, and now we can solve the game in 2-3 seconds.
 
 
     </div>

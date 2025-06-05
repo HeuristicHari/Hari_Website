@@ -14,10 +14,10 @@ export default function Perudo_page() {
     
 
 		
-			<h1 className="text-center text-primary-900 mb-1 font-semibold text-2xl md:text-4xl tracking-tight">Perudo</h1>
+			<h1 className="text-center text-primary-900 mb-1 font-semibold text-2xl md:text-4xl tracking-tight">Perudo Blog</h1>
       <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>I've known of this
-      game since 2019. We used to play with cards instead of dice, which actually ended up
-      removing too much from the complexity of the game. Now, you can play with your friends at
+      game since 2019. We used to play with cards instead of dice, which ended up
+      removing much from the complexity of the game. Now, you can play with friends at
       {' '} <a href="https://perudoonline.com" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline" >perudoonline.com</a>{' '} without owning a truly questionable number of dice.
 		</div>
 
@@ -31,46 +31,57 @@ export default function Perudo_page() {
       Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>
 
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (This is equivalent 
-      to resigning.)
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
+
+      Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (mechanically equal to resigning.)
       I nodelocked my solver (some of it is on Github) to call BS, and the minimax payoff did not change -- which means that 
-      all else equal, the common-sense approach of calling BS is ALSO a nash equilibrium.
+      calling BS instead of resigning is also a nash equilibrium. My code isn't wrong, either -- other online 
+      solutions do similar things.
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      Why? To put it concisely, this strategy is only weakly dominated by the strategy that acts 
-      the same at every other node but calls BS here. Suppose we have a strategy
-      S' that weakly dominates S. S may still be a nash equilibria if the best response to S
-      never traverses any of the nodes where S' outperforms S. 
-    </div>
+      Why? To put it concisely, resigning is only weakly dominated by calling BS. And weakly dominated 
+      strategies may be a part of a nash equilibrium. In this particular case -- if our opponent tries to exploit our resign,
+      they will lose too much EV by calling 2 3s. So our opponent can't exploit our resign, and the equilibria doesn't care about this node.
 
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      In this particular case -- if our opponent tries to exploit this resignation decision,
-      they will lose too much EV when we don't have a 4 and just call BS instead. So a maximally 
-      exploitative strategy doesn't exploit our resign, and the equilibria doesn't care about this node.
       (For those who've used GTOWizard -- this is the same reason why GTOWizard will sometimes give you weird looking
       strategies along with a warning that you are at a "not-often-traversed-node" of the game tree.)
+    </div>
+
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+        (05-30-25)
+      Perudo is just large enough to put naive LP-solving out of reach, as I found when I coded up a 
+      naive solution -- represent your strategy as a mix of all pure strategies, then iterate over opposing strategies 
+      and find a distribution that does well vs all of them. There are on the order of 
+      12^(2^11) opposing pure strategies. Solution: use the Koller-Megiddo-Strengel algorithm that works with 
+      sequential representations of games.
+    </div>
+
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      The algorithm is a bit general, and supports a wide class of games. So it fails to exploit nice properties 
+      of perudo. Because of this, trying to solve with PyGambit (which implements Koller's Algorithm) results in something like 
+      12 hours of computation to solve the one vs one game. Solution: reimplement the algorithm, leveraging details like the fact that 
+      certain game-theoretic matrices are sparse in Perudo's context. 
+
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 md:my-0 lg:mx-64'>
         (01-13-25) 
         My overall goal is to 
         beat <a href="https://dudo.ai" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">dudo.ai</a>. The core idea is fine-tuning counter-factual regret techniques using pytorch, 
-        which is similar to experts. Thus far, I've ported some code to a collab notebook for CUDA (GPU) access. I've coded up a lot of utilities. I've trained 2 similar models for a measly 6k iterations, where the only thing 
-        I varied is a hyperparameter that I invented. Their outputs make some sense. One model simplifies strategies a little more aggressively than the other.
+        which is similar to experts. Thus far, I've ported some code to a collab notebook for CUDA (GPU) access, coded up a lot of utilities, and trained 2 models for a (measly) 6k iterations, varying 
+        a hyperparameter that I invented. As expected, one model simplifies strategies a little more aggressively than the other.
   
     </div>
 
        <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-       I've messed with regret-hedge algorithms, including the one at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a> that tried to 
+       I've experimented with regret-hedge algorithms, including the one at <a href="https://arxiv.org/pdf/0903.2851" rel="noopener noreferrer" className="text-purple-700 hover:text-blue-700 hover:underline">https://arxiv.org/pdf/0903.2851</a> that tried to 
        avoid the problem of tuning a learning rate parameter. However, when I implemented it, weighting weights in 
        proportion to re^(r^2) empirically just converges poorly because the strategy "likes leaf nodes too much"
-    </div>
 
-  <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-        For the future, there are a lot of design choices to be made. It's also possible to integrate linear programming (LP) into the model. I got some experience with them in CMUs 15451, where I found that making simple observations about games 
-        before applying LP can lead to a lot of speedup. I've found such opportunity within Perudo.
+        For the future, I intend to integrate linear programming (LP) 
+        into the model, solving near-terminal states explicitly. I got some experience with LPs them in CMUs 15451, where I found that making simple observations about games 
+        to construct LPs can lead to a lot of speedup. 
   </div>
 
   

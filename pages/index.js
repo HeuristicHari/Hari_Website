@@ -32,7 +32,7 @@ export default function Home() {
           /> */}
           <Tile
             title="Perudo"
-            content={<div><div className='text-md my-1'>High variance duel</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
+            content={<div><div className='text-md my-1'>High variance duel (06-04-25)</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
             link="perudo_page"
             bg={1}
           />

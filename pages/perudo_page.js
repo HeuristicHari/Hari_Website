@@ -35,8 +35,7 @@ export default function Perudo_page() {
 
       Obviously, you should call BS. But there exists a nash equilibrium where you call 2 6s (mechanically equal to resigning.)
       I nodelocked my solver (some of it is on Github) to call BS, and the minimax payoff did not change -- which means that 
-      calling BS instead of resigning is also a nash equilibrium. My code isn't wrong, either -- other online 
-      solutions do similar things.
+      calling BS instead of resigning is also a nash equilibrium.
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>

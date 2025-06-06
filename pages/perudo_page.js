@@ -28,6 +28,17 @@ export default function Perudo_page() {
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      (06-06-25) 
+      With some clever tricks, I've found one equilibrium (with many dominated strategies) 
+      for the 2 die vs 2 die game! This is also the game size which the dudo.ai creator 
+      was first unable to solve. The solver takes about 20 minutes. My goal is to solve the 3 die vs 3 die game, but many more optimizations 
+      will need to be made. Then, I'll use these optimizations in the ones wild variant, and finally face off 
+      against dudo.ai (which only plays this variant.)
+
+
+    </div>
+
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
     (06-05-25)
       Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>

@@ -30,8 +30,10 @@ export default function Perudo_page() {
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
       (06-06-25) 
       With some clever tricks, I've found one equilibrium (with many dominated strategies) 
-      for the 2 die vs 2 die game! This is also the game size which the dudo.ai creator 
-      was first unable to solve. The solver takes about 20 minutes. My goal is to solve the 3 die vs 3 die game, but many more optimizations 
+      for the 2 die vs 2 die game! The 2v2 player one payoff is -0.0168. In the 2v1 game, the player one 
+      payoff is 0.2748. In the 1v2 game, the payoff is -0.2716. The latter two results agree with 
+      other online computations, but as far as I know I am the only one to have solved the 2v2 game.
+      My goal is to solve the 3 die vs 3 die game, but many more optimizations 
       will need to be made. Then, I'll use these optimizations in the ones wild variant, and finally face off 
       against dudo.ai (which only plays this variant.)
 

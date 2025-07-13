@@ -70,9 +70,7 @@ export default function Problems_page() {
       </div>
       </div>
 
-      <footer className='bg-slate-700'>
-        
-      </footer>
+
 
 
 {/* note footer width 102%: means if you scroll right theres white. idrc though. */}
@@ -86,24 +84,7 @@ export default function Problems_page() {
           align-items: center;
           width:
         }
-        footer {
-          width: 102%;
-          height: 100px;
-          border-top: 1px solid #27272a;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
+
         code {
           background: #fafafa;
           border-radius: 5px;
@@ -122,6 +103,7 @@ export default function Problems_page() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+            overscroll-behavior: none;
         }
         * {
           box-sizing: border-box;

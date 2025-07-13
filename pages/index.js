@@ -15,27 +15,31 @@ export default function Home() {
     
 
 		<div className='text-white md:text-xl space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
-			<h1 className="text-center text-primary-900 mb-1 font-semibold text-3xl md:text-5xl tracking-tight">Hey!! I'm Hari!</h1>
+			<h1 className="text-center text-primary-900 mb-1 font-semibold text-3xl md:text-5xl tracking-tight">Hi! I'm Hari!</h1>
 			
       <div className='mx-8'>
-        Welcome. I'm a junior at Carnegie Mellon University majoring in CS. I've previously interned at Meta from May-Aug 2024. 
-        I'm involved with writing for math competitions and have taken an interest in nondeterministic zero-sum games like Liar's Dice. 
-        Check out my interests below if you're interested in learning more!
+       Welcome. I'm a junior at Carnegie Mellon University majoring in CS and Math. I've previously interned at Meta, and 
+        am currently interning at Hartree Partners. Below is a collection of my work and interests.
+    
       </div>
 		</div>
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-3">
           {/* <Tile
             title="About me"
             content={<p>Random facts</p>}
             link="/"
             bg={0}
           /> */}
+
+ 
           <Tile
             title="Perudo"
             content={<div><div className='text-md my-1'>High variance duel (06-04-25)</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
             link="perudo_page"
             bg={1}
           />
+ 
+          
           <Tile
             title="Hari's Head-Scratchers"
             content={<div><div className='text-md my-1'>Problems for your free time</div><img src='/Images/Region.png' className=' text-center sm:w-20 sm:mx-9 lg:w-40 lg:mx-14 lg:my-9'></img> </div>} 
@@ -47,13 +51,29 @@ export default function Home() {
             title="Jane Street Probability Cards"
             link="/JS_Probability_Playing_Cards_10_17.pdf"
             bg={3}
-            content={<div><div className='text-md'>Numbered cards are finished!</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
+            content={<div><div className='text-md'>Only solutions online! (?)</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
           />
+
           <Tile
             title="Research"
             link="/Hari_Research_Ultrasound.pdf"
             bg={0}
             content={<div><div className='text-md my-1'>Pretty graphs, Ultrasound images</div> <img src='/Images/3D-Research.png' className=' my-11 sm:w-20 sm:my-2 sm:mx-9 lg:w-48 lg:mx-12 lg:my-7'></img></div>}
+          />
+
+          <Tile
+            title="Games"
+            content = {<div><div className='text-md my-1'>My life as a history of fun games</div> <img src ='/Images/UTTT.png' className = ' text-center sm:w-20  lg:w-40 lg:mx-16 lg:my-9'></img></div>}  
+            link = "/games_page"
+            bg={5}
+          />
+          
+
+          <Tile 
+            title="Nothing"
+            content={<div><div className='text-md my-1'>There's nothing here...</div> </div>}  
+            link = ""
+            bg = {6}
           />
           {/* <Tile
             title="Food"
@@ -74,9 +94,7 @@ export default function Home() {
         
       </main >
 
-      <footer className='bg-slate-700'>
-        
-      </footer>
+
 
       <style jsx>{`
         main {
@@ -88,7 +106,7 @@ export default function Home() {
         }
         footer {
           width: 101%;
-          height: 100px;
+          height: 30px;
           border-top: 1px solid #27272a;
           display: flex;
           justify-content: center;
@@ -122,6 +140,7 @@ export default function Home() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+            overscroll-behavior: none;
         }
         * {
           box-sizing: border-box;

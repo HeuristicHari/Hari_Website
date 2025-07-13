@@ -102,11 +102,11 @@ const legend = (
   <table className="text-md border-collapse">
     <thead>
       <tr>
-        <th className="px-2 py-1"></th>
-        <th className="px-2 py-1">Time</th>
-        <th className="px-2 py-1">My Skill</th>
-        <th className="px-2 py-1">How Fun</th>
-        <th className="px-2 py-1">Popular</th>
+        <th className="px-1 py-0"></th>
+        <th className="px-1 py-0">Time</th>
+        <th className="px-1 py-0">My Skill</th>
+        <th className="px-1 py-0">How Fun</th>
+        <th className="px-1 py-0">Popular</th>
       </tr>
     </thead>
     <tbody>
@@ -118,7 +118,7 @@ const legend = (
         { c: 'bg-[#ECB98A]', t: '✘',  s: '',   a: '',   p: '✔' },    // brown
       ].map(({ c, t, s, a, p }, i) => (
         <tr key={i} className="border-t border-gray-600">
-          <td className="px-2 py-1">
+          <td className="px-1 py-1">
             <div className={`w-4 h-4 rounded ${c}`}></div>
           </td>
           <td className="px-2 py-1 text-center">{t}</td>
@@ -155,7 +155,7 @@ export default function GamesPage() {
             </section>
           </div>
 
-          <div className="hidden min-[1850px]:block absolute top-0 right-4">
+          <div className="hidden min-[1700px]:block absolute top-0 right-0">
             {legend}
           </div>
         </div>

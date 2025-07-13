@@ -19,7 +19,7 @@ export default function MiniTile({ title, link, bg = 9 }) {
       href={link}
       className={`
         ${colour[bg] ?? colour[9]}
-        sm:w-20 lg:w-24  sm:h-20 lg:h-24  
+        sm:w-20 lg:w-24  sm:h-20 lg:h-24 
         rounded-lg overflow-hidden shadow-md
         mx-1 my-1                         
         flex items-center justify-center text-center

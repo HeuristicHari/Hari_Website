@@ -34,7 +34,7 @@ export default function Home() {
  
           <Tile
             title="Perudo"
-            content={<div><div className='text-md my-1'>High variance duel (06-04-25)</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
+            content={<div><div className='text-md my-1'>High variance duel (07-18-25)</div> <img src='/Images/perudo-template.png' className=' text-center my-8 sm:my-0 lg:my-4 '></img></div>} 
             link="perudo_page"
             bg={1}
           />
@@ -51,7 +51,7 @@ export default function Home() {
             title="Jane Street Probability Cards"
             link="/JS_Probability_Playing_Cards_10_17.pdf"
             bg={3}
-            content={<div><div className='text-md'>Only solutions online! (?)</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
+            content={<div><div className='text-md'>The only solutions online, I think</div> <img src='/Images/QQ.png' className='sm:w-16 lg:w-44 sm:my-1  sm:mx-14 lg:mx-14 my-4'></img></div>}
           />
 
           <Tile

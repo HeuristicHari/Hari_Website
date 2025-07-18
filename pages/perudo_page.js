@@ -28,23 +28,46 @@ export default function Perudo_page() {
     <h1 className="text-center mb-1 font-semibold text-lg md:text-xl tracking-tight">AI</h1>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
-      (06-06-25) 
-      With some clever tricks, I've found one equilibrium (with many dominated strategies) 
-      for the 2 die vs 2 die game! The 2v2 player one payoff is -0.0168. In the 2v1 game, the player one 
-      payoff is 0.2748. In the 1v2 game, the payoff is -0.2716. The latter two results agree with 
-      other online computations, but as far as I know I am the only one to have solved the 2v2 game.
-      My goal is to solve the 3 die vs 3 die game, but many more optimizations 
-      will need to be made. Then, I'll use these optimizations in the ones wild variant, and finally face off 
-      against dudo.ai (which only plays this variant.)
+    (07-18-25)
+    With some clever tricks, I've found a nash equilibria for the 2 die vs 2 die game! The 2v2 player one payoff is -0.0168. 
+    In the 2v1 game, the player one payoff is 0.2748. In the 1v2 game, the payoff is -0.2716. The latter two results agree with other online computations, 
+    but I am the only one to have ever solved the 2v2 game!
+    </div>
+    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+      I've stumbled upon some interesting 
+      facts about nash equilibria. I intend on rearranging this exposition (including my 06-05-25 post)
+      within this page, but for now it remains here.
 
 
+      There are two principled types of equilibria that are improvements on the naive nash equilbria 
+      in sequential games: normal-form perfect equilibria and sequential equilibria. These both have nice properties.
+      There is an algorithm that actually finds an equilibria fitting both these descriptions. I tried to implement it, 
+      but doing so would require use of a symbolic solver (Google OR-tools will not suffice.) Instead, I've settled 
+      for a NE that shares certain proprties with Sequential Equilibria.
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+
+      Anyways, enjoy a striking representation of an optimal P1 first-move strategy! On the first turn, 
+      only one-of-a-kind claims are called. Unlike the 1v1 case, strategies with 
+      deterministic first-move profiles are no longer capable of achieving the optimal value (that is, there is no 
+      equilibrium that produces 36 monochrome pie charts.) 
+
+    <div className="flex justify-center md:my-16 lg:my-28"> 
+        <img src='/Images/2v2_m1.png' className='md:h-64 lg:h-96  mx-11'></img>
+  </div>
+
+
+    </div>
+
+
+
+    <div className='self-start text-black md:text-md space-x-2 sm: mx-16 md:mx-32 my-2 md:my-4 lg:mx-64'>
+
     (06-05-25)
       Heads up, one die each. You roll a 4. Your opponent calls 2 3s. What is your best response?
     </div>
-    <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
+    <div className='text-black md:text-md space-x-2 sm:mx-16 md:mx-32 lg:mx-64'>
 
       Obviously, you should call BS. But there exists a nash equilibrium where you simply resign.
       I nodelocked my solver (some of it is on Github) to call BS, and the minimax payoff did not change -- which means that 
@@ -80,10 +103,10 @@ export default function Perudo_page() {
     </div>
 
     <div className='text-black md:text-md space-x-2 sm: mx-16 md:mx-32 lg:mx-64'>
-      I have to make some optimization choices, because the Koller algorithm as implemented on PyGambit doesn't 
-      exploit any nice properties and results in something like 12 hours of computation to solve the one vs one game. 
+      I have to make optimization choices, because the Koller algorithm as implemented on PyGambit doesn't 
+      exploit properties of Perudo and results in something like 12 hours of computation to solve the 1v1 game. 
       So I reimplemented the algorithm, adding simple optimizations like: when a matrix is guaranteed to be sparse, represent it as such. 
-      We've gotten to a 20000x speedup, and now we can solve the game in 2-3 seconds.
+      We've gotten to a 20000x speedup, and now we can solve the 1v1 game in 2-3 seconds.
 
 
     </div>
@@ -104,8 +127,8 @@ export default function Perudo_page() {
   </div>
 
   
-    <div className="flex justify-center md:my-16 lg:my-28"> 
-    <img src='/Images/BS.png' className='md:h-32 lg:h-40  mx-11'></img>
+    <div className="flex justify-center md:my-16"> 
+    <img src='/Images/BS.png' className='md:h-28 lg:h-32  mx-11'></img>
   </div>
 
 

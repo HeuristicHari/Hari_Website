@@ -18,8 +18,8 @@ export default function Home() {
 			<h1 className="text-center text-primary-900 mb-1 font-semibold text-3xl md:text-5xl tracking-tight">Hi! I'm Hari!</h1>
 			
       <div className='mx-8'>
-       Welcome. I'm a junior at Carnegie Mellon University majoring in CS and Math. I've previously interned at Meta, and 
-        am currently interning at Hartree Partners. Below is a collection of my work and interests.
+       Welcome. I'm a junior at Carnegie Mellon University majoring in CS and Math. I've previously interned at Meta and 
+       Hartree Partners, and I'm currently a <a href="https://www.cs.cmu.edu/~fsaad/teaching/15259-f25/" target="_blank" rel="noopener noreferrer" className="text-emerald-500 font-semibold rounded">TA</a>. Below is a collection of my work and interests.
     
       </div>
 		</div>

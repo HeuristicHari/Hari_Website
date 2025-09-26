@@ -11,14 +11,14 @@ function Navbar() {
                          &ensp; Hari Desikan
                          
                     </Link>     
-                        <Link
+                        {/* <Link
                         href="../ResumeWebsite.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="float-right py-5 scale-150">
           
                         <img src="/resume.svg" alt="Resume" className={styles.logo} />
-                        </Link>
+                        </Link> */}
                     
                     <p className= "float-right">&ensp; &emsp;</p>
                         <Link

@@ -68,6 +68,11 @@ export default function Problems_page() {
         <img src='/Images/monty-1.png' className='my-1 w-75wv '  ></img>
       </a>
       </div>
+      <div className={image_class}> 
+      <a href="https://drive.google.com/file/d/1XHeV44Q2D5bM5VrCBLQmEHJDo7Bs2JKz/view" target="_blank" rel="noopener noreferrer">
+        <img src='/Images/luigi-1.png' className='my-1 w-75wv '  ></img>
+      </a>
+      </div>
       </div>
 
 

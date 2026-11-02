@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import Navbar from '../components/navbar';
+
 import 'tailwindcss/tailwind.css'
 import Tile from '../components/Tile';
 export default function Home() {
@@ -18,8 +19,9 @@ export default function Home() {
 			<h1 className="text-center text-primary-900 mb-1 font-semibold text-3xl md:text-5xl tracking-tight">Hi! I'm Hari!</h1>
 			
       <div className='mx-8'>
-       Welcome. I'm a junior at Carnegie Mellon University majoring in CS and Math. I've previously interned at Meta and 
-       Hartree Partners, and I'm currently a <a href="https://www.cs.cmu.edu/~fsaad/teaching/15259-f25/" target="_blank" rel="noopener noreferrer" className="text-emerald-500 font-semibold rounded">TA</a>. Below is a collection of my work and interests.
+       Welcome. I'm a CS + Math major at CMU. I've interned as a trader and
+        was a <a href="https://www.cs.cmu.edu/~fsaad/teaching/15259-f25/" target="_blank" rel="noopener noreferrer" className="text-emerald-500 font-semibold rounded">TA</a> for 
+        a probability class. Below is a collection of my work and interests.
     
       </div>
 		</div>
@@ -70,9 +72,9 @@ export default function Home() {
           
 
           <Tile 
-            title="Nothing"
-            content={<div><div className='text-md my-1'>There's nothing here...</div> </div>}  
-            link = ""
+            title="Game Theory"
+            content={<div><div className='text-md my-1'>More than equilibria</div> <img src='/Images/shark.jpg' className = ' text-center sm:w-20  lg:w-40 lg:mx-16 lg:my-9'></img></div>}  
+            link = "/game_theory_page"
             bg = {6}
           />
           {/* <Tile
